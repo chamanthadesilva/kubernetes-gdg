@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gdg-microservices
+spec:
+  selector:
+    matchLabels:
+      app: gdg-microservices
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: gdg-microservices
+    spec:
+      containers:
+      - name: microservice-1
+        image: chamantha/gdg-microservice
+        ports:
+        - containerPort: 8080
+      - name: microservice-2
+        image: tutum/hello-world
+        ports:
+        - containerPort: 80

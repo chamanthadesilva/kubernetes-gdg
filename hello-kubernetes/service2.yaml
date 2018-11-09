@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gdg-demo-service2
+spec:
+  selector:
+    app: gdg-microservices
+  ports:
+    - protocol: "TCP"
+      # Port that will be exposed at the contianer level
+      port: 8090
+      # Port that listens at the container level
+      targetPort: 80
+      # Port that will be exposed at the node level
+      nodePort: 30002
+  type: LoadBalancer
