@@ -7,10 +7,11 @@ spec:
     app: gdg-microservices
   ports:
     - protocol: "TCP"
-      # Port accessible inside the cluster
+      # Port that will be exposed at the cluster level,
+      #eventually the port that will be exposed to outside
       port: 8080
-      # Port that needs to routed inside the pod (respective containers port)
+      # Port that listens at the container level
       targetPort: 8080
-      # Port that service listen on the given node
+      # Port that will be exposed at the node level
       nodePort: 30001
   type: LoadBalancer
